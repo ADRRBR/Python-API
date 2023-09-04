@@ -25,8 +25,9 @@ def conectaBancoDados():
 
 #-----------------------------------------------------------------------------------
 
+@app.route('/ADRRBR/clientes/consultanome/', defaults={'nome': None}, methods=['GET'])
 @app.route('/ADRRBR/clientes/consultanome/<string:nome>',methods=['GET'])
-def consultaClientesNome(nome=''):
+def consultaClientesNome(nome):
     logExec = preparaLog()
     if not logExec:
         mensagem = {'Mensagem:': 'Arquivo de LOG: ' + caminho + arquivoLogExecucao}
@@ -46,7 +47,7 @@ def consultaClientesNome(nome=''):
 
     sWhere   = ''
 
-    if nome != '':
+    if nome != None:
         sWhere = f"WHERE NOME LIKE '{nome}%'"
 
     clientes.consulta(sWhere,'')
