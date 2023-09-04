@@ -12,6 +12,7 @@ from datetime import datetime as dtm
 from flask import Flask, make_response, jsonify
 import json
 import numpy
+import requests
 
 # Tipos de Retorno para Execução dos Métodos da Classes
 class StatusExecucao(Enum):
