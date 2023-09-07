@@ -51,9 +51,6 @@ def consultaClientesNome(nome):
         sWhere = f"WHERE NOME LIKE '{nome}%'"
 
     clientes.consulta(sWhere,'')
-    if clientes.status != StatusExecucao.Encontrado:
-        mensagem = {'Mensagem:': clientes.mensagem}
-        return jsonify(mensagem)
 
     RegistraLinhaArquivo(logExec, clientes.JSONClientes, True)
 
